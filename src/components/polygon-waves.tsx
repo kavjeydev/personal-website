@@ -28,11 +28,9 @@ export function PolygonWaves() {
       const h = canvas.getBoundingClientRect().height;
 
       ctx.clearRect(0, 0, w, h);
-      ctx.strokeStyle = "#d0d0d0";
-      ctx.lineWidth = 0.5;
 
-      const cols = 32;
-      const rows = 16;
+      const cols = 36;
+      const rows = 14;
       const cellW = w / cols;
       const cellH = h / rows;
 
@@ -43,21 +41,27 @@ export function PolygonWaves() {
         for (let col = 0; col <= cols; col++) {
           const x = col * cellW;
           const baseY = row * cellH;
-          const wave1 = Math.sin(col * 0.3 + time * 0.8) * 8;
-          const wave2 = Math.sin(row * 0.5 + time * 0.6) * 6;
-          const wave3 = Math.cos((col + row) * 0.2 + time * 0.4) * 4;
+          const wave1 = Math.sin(col * 0.25 + time * 0.6) * 10;
+          const wave2 = Math.sin(row * 0.4 + time * 0.5) * 7;
+          const wave3 = Math.cos((col + row) * 0.15 + time * 0.35) * 5;
           const y = baseY + wave1 + wave2 + wave3;
           points[row][col] = [x, y];
         }
       }
 
-      // Draw triangulated mesh
+      // Triangulated mesh with position-based opacity for depth
       for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
           const tl = points[row][col];
           const tr = points[row][col + 1];
           const bl = points[row + 1][col];
           const br = points[row + 1][col + 1];
+
+          const centerDist = Math.abs(col / cols - 0.5) * 2;
+          const opacity = 0.12 + (1 - centerDist) * 0.18;
+
+          ctx.strokeStyle = `rgba(196, 154, 107, ${opacity})`;
+          ctx.lineWidth = 0.5;
 
           ctx.beginPath();
           ctx.moveTo(tl[0], tl[1]);
@@ -75,18 +79,21 @@ export function PolygonWaves() {
         }
       }
 
-      // Draw dots at vertices
-      ctx.fillStyle = "#999";
+      // Vertex dots with radial fade
       for (let row = 0; row <= rows; row++) {
         for (let col = 0; col <= cols; col++) {
           const [x, y] = points[row][col];
+          const centerDist = Math.abs(col / cols - 0.5) * 2;
+          const opacity = 0.2 + (1 - centerDist) * 0.4;
+
+          ctx.fillStyle = `rgba(196, 154, 107, ${opacity})`;
           ctx.beginPath();
-          ctx.arc(x, y, 1.2, 0, Math.PI * 2);
+          ctx.arc(x, y, 1, 0, Math.PI * 2);
           ctx.fill();
         }
       }
 
-      time += 0.015;
+      time += 0.012;
       animationId = requestAnimationFrame(draw);
     };
 
@@ -102,11 +109,11 @@ export function PolygonWaves() {
   }, []);
 
   return (
-    <div className="border border-[#e0e0e0] rounded overflow-hidden mb-10">
+    <div className="mb-14 rounded-lg overflow-hidden">
       <canvas
         ref={canvasRef}
         className="w-full block"
-        style={{ height: "280px" }}
+        style={{ height: "240px" }}
       />
     </div>
   );

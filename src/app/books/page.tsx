@@ -7,32 +7,39 @@ export default function BooksPage() {
   const read = books.filter((b) => b.status === "read");
 
   return (
-    <main className="max-w-[680px] mx-auto py-[60px] px-6">
+    <main className="max-w-[720px] mx-auto px-6 py-20 md:py-32">
       <Link
         href="/"
-        className="text-sm text-gray-500 hover:text-gray-700 mb-8 inline-block"
+        className="text-sm text-[#7a756f] hover:text-[#ece8e1] transition-colors mb-12 inline-block"
       >
         &larr; back to home
       </Link>
 
-      <h1 className="font-serif italic text-4xl mb-2">Library</h1>
-      <p className="text-gray-500 mb-12">Overengineered book cataloging.</p>
+      <header className="mb-16 animate-fade-up">
+        <h1 className="font-serif italic text-5xl md:text-6xl tracking-[-0.02em] mb-3">
+          Library
+        </h1>
+        <p className="text-[#7a756f]">Overengineered book cataloging.</p>
+      </header>
 
       {reading.length > 0 && (
-        <section className="mb-12">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">
+        <section
+          className="mb-16 animate-fade-up"
+          style={{ animationDelay: "0.1s" }}
+        >
+          <h2 className="text-[11px] uppercase tracking-[0.25em] text-[#c49a6b] mb-8 font-medium">
             Currently Reading
           </h2>
           <BookGrid books={reading} />
         </section>
       )}
 
-      <section>
-        <div className="flex justify-between items-baseline mb-6">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400">
+      <section className="animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        <div className="flex justify-between items-baseline mb-8">
+          <h2 className="text-[11px] uppercase tracking-[0.25em] text-[#7a756f] font-medium">
             My Bookshelf
           </h2>
-          <span className="text-sm text-gray-400">
+          <span className="text-sm text-[#7a756f]">
             {read.length} of {books.length} books
           </span>
         </div>
