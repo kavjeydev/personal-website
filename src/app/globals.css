@@ -26,6 +26,11 @@
   --ring-subtle: rgba(255, 255, 255, 0.05);
 }
 
+:root.light ::selection {
+  background: rgba(154, 109, 58, 0.25);
+  color: var(--text);
+}
+
 :root.light {
   --bg: #faf9f7;
   --text: #1a1a18;
@@ -59,6 +64,11 @@
     background-repeat: repeat;
     background-size: 256px;
     view-transition-name: none;
+  }
+
+  ::selection {
+    background: rgba(196, 154, 107, 0.3);
+    color: var(--text);
   }
 
   ::-webkit-scrollbar { width: 6px; }

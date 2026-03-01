@@ -48,6 +48,11 @@ export default function ProjectsPage() {
                       {project.title}
                     </span>
                   )}
+                  {project.badge && (
+                    <span className="text-[10px] font-medium uppercase tracking-wider text-[var(--accent)] border border-[var(--accent)] rounded px-1.5 py-0.5 leading-none">
+                      {project.badge}
+                    </span>
+                  )}
                   {project.link && (
                     <span className="text-[var(--muted-dim)] text-xs opacity-0 group-hover:opacity-100 transition-opacity">
                       &rarr;
