@@ -23,9 +23,18 @@ export function PolygonWaves() {
       ctx.scale(dpr, dpr);
     };
 
+    const getWaveColor = () => {
+      const isLight =
+        document.documentElement.classList.contains("light");
+      return isLight
+        ? { r: 154, g: 109, b: 58 }
+        : { r: 196, g: 154, b: 107 };
+    };
+
     const draw = () => {
       const w = canvas.getBoundingClientRect().width;
       const h = canvas.getBoundingClientRect().height;
+      const { r, g, b } = getWaveColor();
 
       ctx.clearRect(0, 0, w, h);
 
@@ -49,7 +58,6 @@ export function PolygonWaves() {
         }
       }
 
-      // Triangulated mesh with position-based opacity for depth
       for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
           const tl = points[row][col];
@@ -60,7 +68,7 @@ export function PolygonWaves() {
           const centerDist = Math.abs(col / cols - 0.5) * 2;
           const opacity = 0.12 + (1 - centerDist) * 0.18;
 
-          ctx.strokeStyle = `rgba(196, 154, 107, ${opacity})`;
+          ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
           ctx.lineWidth = 0.5;
 
           ctx.beginPath();
@@ -79,14 +87,13 @@ export function PolygonWaves() {
         }
       }
 
-      // Vertex dots with radial fade
       for (let row = 0; row <= rows; row++) {
         for (let col = 0; col <= cols; col++) {
           const [x, y] = points[row][col];
           const centerDist = Math.abs(col / cols - 0.5) * 2;
           const opacity = 0.2 + (1 - centerDist) * 0.4;
 
-          ctx.fillStyle = `rgba(196, 154, 107, ${opacity})`;
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
           ctx.beginPath();
           ctx.arc(x, y, 1, 0, Math.PI * 2);
           ctx.fill();

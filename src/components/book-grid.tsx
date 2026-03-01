@@ -1,32 +1,63 @@
 import { Book, getCoverUrl } from "@/data/books";
 
-function BookCard({ book }: { book: Book }) {
+export function FeaturedBook({ book }: { book: Book }) {
   return (
-    <div className="flex gap-4 items-start group">
+    <div className="flex gap-6 items-start">
       <div className="relative flex-shrink-0">
         <img
           src={getCoverUrl(book.isbn)}
           alt={`${book.title} cover`}
-          className="w-[72px] h-[108px] object-cover rounded-sm transition-transform duration-300 group-hover:scale-[1.03]"
+          className="w-[100px] h-[150px] object-cover rounded"
           loading="lazy"
         />
-        <div className="absolute inset-0 rounded-sm ring-1 ring-white/10 pointer-events-none" />
+        <div className="absolute inset-0 rounded ring-1 ring-[var(--ring)] pointer-events-none" />
       </div>
-      <div className="pt-0.5">
-        <p className="font-medium leading-snug text-[#ece8e1]/90 text-[15px]">
+      <div className="pt-1">
+        <p className="font-serif text-xl leading-snug text-[var(--text)] mb-1">
           {book.title}
         </p>
-        <p className="text-[#7a756f] text-sm mt-0.5">{book.author}</p>
+        <p className="text-[var(--muted)] text-sm">{book.author}</p>
       </div>
     </div>
   );
 }
 
-export function BookGrid({ books }: { books: Book[] }) {
+function BookRow({ book, index }: { book: Book; index: number }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {books.map((book) => (
-        <BookCard key={book.isbn} book={book} />
+    <div className="group">
+      <div className="flex items-center gap-5 py-4">
+        <span className="text-[13px] text-[var(--muted-dim)] tabular-nums w-6 text-right flex-shrink-0 font-mono">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <div className="relative flex-shrink-0">
+          <img
+            src={getCoverUrl(book.isbn)}
+            alt={`${book.title} cover`}
+            className="w-[40px] h-[60px] object-cover rounded-sm transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 rounded-sm ring-1 ring-[var(--ring-subtle)] pointer-events-none" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="font-medium text-[15px] text-[var(--text-primary)] leading-snug truncate">
+            {book.title}
+          </p>
+          <p className="text-[var(--muted)] text-[13px] mt-0.5">
+            {book.author}
+          </p>
+        </div>
+      </div>
+      <div className="h-px bg-[var(--border-dim)]" />
+    </div>
+  );
+}
+
+export function BookList({ books }: { books: Book[] }) {
+  return (
+    <div>
+      <div className="h-px bg-[var(--border-dim)]" />
+      {books.map((book, i) => (
+        <BookRow key={book.isbn} book={book} index={i} />
       ))}
     </div>
   );
