@@ -18,6 +18,8 @@ export const books: Book[] = [
   { title: "The 12 Week Year", author: "Brian P. Moran", isbn: "9781118509234", status: "read" },
   { title: "The Psychology of Money", author: "Morgan Housel", isbn: "9780857197689", status: "read" },
   { title: "The 10X Rule", author: "Grant Cardone", isbn: "9780470627600", status: "read" },
+  { title: "Atomic Habits", author: "James Clear", isbn: "9780735211292", status: "read" },
+  { title: "Meditations", author: "Marcus Aurelius", isbn: "9780140449334", status: "read" },
 ];
 
 export function getCoverUrl(isbn: string): string {

@@ -28,7 +28,7 @@ export default function Home() {
         style={{ animationDelay: "0.3s" }}
       >
         <p className="font-serif italic text-xl md:text-2xl text-[var(--text-primary)] leading-relaxed">
-          I like solving problems that compound.
+          Bilding AI infrastructure for reliability and versioning.
         </p>
 
         <p className="text-[var(--text-secondary)]">
