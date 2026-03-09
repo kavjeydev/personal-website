@@ -8,18 +8,19 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Absorb",
-    description:
-      "Chrome extension that turns lectures into lasting knowledge. Integrates with Canvas, YouTube, Zoom, and Coursera to auto-transcribe content and generate flashcard sets with spaced repetition.",
-    tech: ["Chrome Extension", "TypeScript", "FastAPI", "Deepgram", "PostgreSQL"],
-    link: "https://github.com/kavjeydev/absorb",
-  },
-  {
     title: "Trainly",
     description:
       "RAG infrastructure for reliable AI apps. Built-in versioning, response scoring, and regression tracking so developers can ship AI features with confidence.",
     tech: ["Neo4j Vector Search", "FastAPI", "OpenAI Embeddings", "Convex", "Stripe Connect"],
     link: "https://trainlyai.com",
+  },
+  {
+    title: "Absorb",
+    description:
+      "Chrome extension that turns lectures into lasting knowledge. Integrates with Canvas, YouTube, Zoom, and Coursera to auto-transcribe content and generate flashcard sets with spaced repetition.",
+    tech: ["Chrome Extension", "TypeScript", "FastAPI", "Deepgram", "PostgreSQL"],
+    link: "https://github.com/kavjeydev/absorb",
+    badge: "Observed with Trainly",
   },
   {
     title: "Skill Notes",
