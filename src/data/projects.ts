@@ -19,7 +19,7 @@ export const projects: Project[] = [
     description:
       "Chrome extension that turns lectures into lasting knowledge. Integrates with Canvas, YouTube, Zoom, and Coursera to auto-transcribe content and generate flashcard sets with spaced repetition.",
     tech: ["Chrome Extension", "TypeScript", "FastAPI", "Deepgram", "PostgreSQL"],
-    link: "https://github.com/kavjeydev/absorb",
+    link: "https://getabsorb.ai",
     badge: "Observed with Trainly",
   },
   {
