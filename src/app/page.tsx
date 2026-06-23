@@ -67,12 +67,12 @@ export default function Home() {
           LinkedIn &rarr;
         </a>
         <a
-          href="https://trainlyai.com"
+          href="https://notesasm.com"
           className="text-[var(--accent)] link-hover"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Trainly &rarr;
+          Notes ASM &rarr;
         </a>
         <Link href="/projects" className="text-[var(--accent)] link-hover">
           Projects &rarr;
