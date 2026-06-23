@@ -28,20 +28,22 @@ export default function Home() {
         style={{ animationDelay: "0.3s" }}
       >
         <p className="font-serif italic text-xl md:text-2xl text-[var(--text-primary)] leading-relaxed">
-          Building AI infrastructure for reliability and versioning.
+          Building infrastructure for AI agents reliable enough to grow
+          companies on their own.
         </p>
 
         <p className="text-[var(--text-secondary)]">
-          I&apos;m building Trainly, infrastructure for reliable AI apps. Most
-          RAG pipelines break silently. Trainly versions every response, scores
-          retrieval quality, and lets teams track regressions before users
-          notice.
+          I&apos;m building Notes ASM, where a team of AI agents runs and grows a
+          company autonomously &mdash; validating ideas, finding customers,
+          shipping campaigns, and working the funnel end to end.
         </p>
 
         <p className="text-[var(--text-secondary)]">
-          Before that, I worked on real-time data systems and developer tooling.
-          I like hard problems where the right abstraction saves everyone else
-          time.
+          The hard part isn&apos;t doing the work, it&apos;s knowing what to do
+          next. Agents don&apos;t think or learn the way people do. I care about
+          the infrastructure underneath: making these agent systems reliable and
+          trusted enough to act like a person would, grow companies, and add
+          value to the world autonomously.
         </p>
       </section>
 
