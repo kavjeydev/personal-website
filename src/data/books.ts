@@ -7,9 +7,11 @@ export type Book = {
 
 export const books: Book[] = [
   // Currently reading
-  { title: "Outliers", author: "Malcolm Gladwell", isbn: "9780316017930", status: "reading" },
+  { title: "Zero to One", author: "Peter Thiel", isbn: "9780804139298", status: "reading" },
 
   // Read
+  { title: "Thinking in Systems", author: "Donella H. Meadows", isbn: "9781603580557", status: "read" },
+  { title: "Outliers", author: "Malcolm Gladwell", isbn: "9780316017930", status: "read" },
   { title: "The Mom Test", author: "Rob Fitzpatrick", isbn: "9781492180746", status: "read" },
   { title: "The 7 Habits of Highly Effective People", author: "Stephen R. Covey", isbn: "9781982137274", status: "read" },
   { title: "Thinking, Fast and Slow", author: "Daniel Kahneman", isbn: "9780374533557", status: "read" },
